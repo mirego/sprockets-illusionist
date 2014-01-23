@@ -1,6 +1,6 @@
 # sprockets-illusionist
 
-`sprockets-illusionist` makes it possible to transpile your ES6 files into ES5 using the Illusionist node module and Sprockets.
+`sprockets-illusionist` makes it possible to transpile your ES6 files into ES5 using the [Illusionist node module](https://github.com/mirego/illusionist) and Sprockets.
 
 ## Installation
 
