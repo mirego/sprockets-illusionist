@@ -4,6 +4,12 @@
 
 ## Installation
 
+First, you will need the [Illusionist](https://github.com/mirego/illusionist) node package:
+
+```bash
+$ npm install -g illusionist
+```
+
 Add this line to your application’s Gemfile:
 
 ```ruby
