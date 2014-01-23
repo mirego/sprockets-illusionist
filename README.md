@@ -18,15 +18,35 @@ $ bundle
 
 ## Usage
 
-If you’re using Rails, create an initializer and set the base path for your modules:
+### Setting the `base_path`
 
-```ruby
+The `base_path` setting is used to name modules. Module names are relative paths to `base_path`, if you don’t set it, only the file name is used.
+
+#### Using Rails
+
+Create an initializer:
+
+```
 SprocketsIllusionist::Config.configure do |config|
   config.base_path = Rails.root.join('app', 'assets', 'javascripts')
 end
 ```
 
-You can now write your JavaScript files with the extension `.js.es6`
+With this configuration, a file named:
+
+```
+/projects/MyApp/app/assets/javascripts/controllers/foo_controller.js.es6
+```
+
+will yield a module named:
+
+```
+controllers/foo_controller
+```
+
+### Writing ES6 files
+
+With `sprockets-illusionist` just write your JavaScript files with the extension `.js.es6` and everything will be transpiled for you.
 
 ## License
 
