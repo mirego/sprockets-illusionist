@@ -26,7 +26,7 @@ The `base_path` setting is used to name modules. Module names are relative paths
 
 Create an initializer:
 
-```
+```ruby
 SprocketsIllusionist::Config.configure do |config|
   config.base_path = Rails.root.join('app', 'assets', 'javascripts')
 end
