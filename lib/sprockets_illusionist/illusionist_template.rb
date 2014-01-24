@@ -4,7 +4,7 @@ require 'tilt'
 
 module SprocketsIllusionist
   class IllusionistTemplate < Tilt::Template
-    default_mime_type = 'application/javascript'
+    self.default_mime_type = 'application/javascript'
 
     def amd_module_name
       base_path = SprocketsIllusionist::Config.base_path
@@ -29,7 +29,7 @@ module SprocketsIllusionist
     end
 
     def evaluate(scope, locals, &block)
-      stdout, stderr, status = Open3.capture3("illusionist -p -m #{amd_module_name}", stdin_data: data)
+      stdout, _stderr, _status = Open3.capture3("illusionist -p -m #{amd_module_name}", stdin_data: data)
       stdout
     end
   end

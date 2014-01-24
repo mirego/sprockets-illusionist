@@ -1,9 +1,8 @@
 module SprocketsIllusionist
   module Config
-    extend self
-    attr_accessor :base_path
+    mattr_accessor :base_path
 
-    def configure
+    def self.configure
       yield self
     end
   end
