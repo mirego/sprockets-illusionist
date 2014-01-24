@@ -19,7 +19,6 @@ module SprocketsIllusionist
         else
           File.join(dirname, file_name)
         end
-
       else
         file_name
       end
