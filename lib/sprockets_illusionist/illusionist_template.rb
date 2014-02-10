@@ -34,7 +34,6 @@ module SprocketsIllusionist
       end
     end
 
-
     def option_string_from_config
       module_type = SprocketsIllusionist::Config.try(:module_type)
       options = ["-m #{amd_module_name}"]
