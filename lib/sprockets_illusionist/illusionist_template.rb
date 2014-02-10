@@ -6,6 +6,16 @@ module SprocketsIllusionist
   class IllusionistTemplate < Tilt::Template
     self.default_mime_type = 'application/javascript'
 
+    def prepare
+    end
+
+    def evaluate(scope, locals, &block)
+      stdout, _stderr, _status = Open3.capture3("illusionist #{option_string_from_config}", stdin_data: data)
+      stdout
+    end
+
+  private
+
     def amd_module_name
       base_path = SprocketsIllusionist::Config.base_path
       file_name = File.basename(file, '.js.es6')
@@ -24,6 +34,7 @@ module SprocketsIllusionist
       end
     end
 
+
     def option_string_from_config
       module_type = SprocketsIllusionist::Config.try(:module_type)
       options = ["-m #{amd_module_name}"]
@@ -33,14 +44,6 @@ module SprocketsIllusionist
       end
 
       options.join(' ')
-    end
-
-    def prepare
-    end
-
-    def evaluate(scope, locals, &block)
-      stdout, _stderr, _status = Open3.capture3("illusionist #{option_string_from_config}", stdin_data: data)
-      stdout
     end
   end
 end
