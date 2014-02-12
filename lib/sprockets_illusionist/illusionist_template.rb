@@ -10,7 +10,7 @@ module SprocketsIllusionist
     end
 
     def evaluate(scope, locals, &block)
-      stdout, _stderr, _status = Open3.capture3("#{node_path} illusionist #{option_string_from_config}", stdin_data: data)
+      stdout, _stderr, _status = Open3.capture3("#{node_path} #{illusionist_path} #{option_string_from_config}", stdin_data: data)
       stdout
     end
 
@@ -18,6 +18,10 @@ module SprocketsIllusionist
 
     def node_path
       SprocketsIllusionist::Config.try(:node_path) || 'node'
+    end
+
+    def illusionist_path
+      SprocketsIllusionist::Config.try(:illusionist_path) || 'illusionist'
     end
 
     def amd_module_name
