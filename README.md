@@ -53,7 +53,7 @@ $ bundle
 
 Create an initializer:
 
-```
+```ruby
 # sprockets_illusionist.rb
 SprocketsIllusionist::Config.configure do |config|
   config.base_path = Rails.root.join('app', 'assets', 'javascripts')
