@@ -21,7 +21,7 @@ module SprocketsIllusionist
     end
 
     def illusionist_path
-      SprocketsIllusionist::Config.try(:illusionist_path) || 'illusionist'
+      SprocketsIllusionist::Config.try(:illusionist_path) || '$(which illusionist)'
     end
 
     def amd_module_name
