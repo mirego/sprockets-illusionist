@@ -10,7 +10,7 @@ module SprocketsIllusionist
     end
 
     def evaluate(scope, locals, &block)
-      stdout, _stderr, _status = Open3.capture3("NODE_PATH=#{node_path} illusionist #{option_string_from_config}", stdin_data: data)
+      stdout, _stderr, _status = Open3.capture3("#{node_path} illusionist #{option_string_from_config}", stdin_data: data)
       stdout
     end
 
