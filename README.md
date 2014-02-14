@@ -137,8 +137,8 @@ Let’s get started!
 
 	```ruby
 	SprocketsIllusionist::Config.configure do |config|
-	  config.node_path = ENV['NODE_PATH']
-	  config.illusionist_path = ENV['ILLUSIONIST_PATH']
+	  config.node_path = ENV['NODE_BIN_PATH']
+	  config.illusionist_path = ENV['ILLUSIONIST_BIN_PATH']
 	  config.base_path = Rails.root.join('app', 'assets', 'javascripts')
 	  config.module_type = 'amd'
 	end
@@ -147,15 +147,15 @@ Let’s get started!
 	Then in `.env` on your local machine:
 
 	```
-	NODE_PATH=node
-	ILLUSIONIST_PATH=./node_modules/.bin/illusionist
+	NODE_BIN_PATH=node
+	ILLUSIONIST_BIN_PATH=./node_modules/.bin/illusionist
 	```
 
 	Finally, set these environment variables on Heroku:
 
 	```bash
-	$ heroku config:set NODE_PATH=./vendor/node/bin/node
-	$ heroku config:set ILLUSIONIST_PATH=./node_modules/.bin/illusionist
+	$ heroku config:set NODE_BIN_PATH=./vendor/node/bin/node
+	$ heroku config:set ILLUSIONIST_BIN_PATH=./node_modules/.bin/illusionist
 	```
 
 ## License
