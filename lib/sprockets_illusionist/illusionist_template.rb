@@ -10,8 +10,8 @@ module SprocketsIllusionist
     end
 
     def evaluate(scope, locals, &block)
-      stdout, _stderr, _status = Open3.capture3("#{node_path} #{illusionist_path} #{option_string_from_config}", stdin_data: data)
-      stdout
+      stdout, stderr, _status = Open3.capture3("#{node_path} #{illusionist_path} #{option_string_from_config}", stdin_data: data)
+      stderr.empty? ? stdout : render_error(stderr)
     end
 
   private
@@ -51,6 +51,12 @@ module SprocketsIllusionist
       end
 
       options.join(' ')
+    end
+
+    def render_error(error)
+      error = error.gsub('"', '\"').gsub("\n", "\\n")
+      "// The file could not be compiled into JavaScript
+      document.getElementsByTagName('body')[0].innerHTML = \"<pre>#{error}</pre>\";"
     end
   end
 end
