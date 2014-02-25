@@ -54,9 +54,9 @@ module SprocketsIllusionist
     end
 
     def render_error(error)
-      error = error.gsub('"', '\"').gsub("\n", "\\n")
+      error = error.split("\n")[1].gsub('"', '\\"')
       "// The file could not be compiled into JavaScript
-      document.getElementsByTagName('body')[0].innerHTML = \"<pre>#{error}</pre>\";"
+      document.getElementsByTagName('body')[0].innerHTML = \"<pre>#{file}<br />#{error}</pre>\";"
     end
   end
 end
