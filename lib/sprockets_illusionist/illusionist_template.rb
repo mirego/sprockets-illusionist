@@ -3,6 +3,8 @@ require 'open3'
 require 'tilt'
 
 module SprocketsIllusionist
+  TranspileError = Class.new(StandardError)
+
   class IllusionistTemplate < Tilt::Template
     self.default_mime_type = 'application/javascript'
 
@@ -11,7 +13,12 @@ module SprocketsIllusionist
 
     def evaluate(scope, locals, &block)
       stdout, stderr, _status = Open3.capture3("#{node_path} #{illusionist_path} #{option_string_from_config}", stdin_data: data)
-      stderr.empty? ? stdout : render_error(stderr)
+
+      if stderr.empty?
+        stdout
+      else
+        raise TranspileError, stderr
+      end
     end
 
   private
@@ -51,12 +58,6 @@ module SprocketsIllusionist
       end
 
       options.join(' ')
-    end
-
-    def render_error(error)
-      error = error.split("\n")[1].gsub('"', '\\"')
-      "// The file could not be compiled into JavaScript
-      document.getElementsByTagName('body')[0].innerHTML = \"<pre>#{file}<br />#{error}</pre>\";"
     end
   end
 end
