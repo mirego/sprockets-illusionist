@@ -158,6 +158,11 @@ Let’s get started!
 	$ heroku config:set ILLUSIONIST_BIN_PATH=./node_modules/.bin/illusionist
 	```
 
+## Contributors
+
+* [@charlesdemers](https://github.com/charlesdemers)
+* [@remiprev](https://github.com/remiprev)
+
 ## License
 
 `sprockets-illusionist` is © 2014 [Mirego](http://www.mirego.com) and may be freely distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).
