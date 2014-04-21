@@ -1,6 +1,7 @@
 # sprockets-illusionist
 
-[![Gem Version](https://badge.fury.io/rb/sprockets-illusionist.png)](http://badge.fury.io/rb/sprockets-illusionist) [![Code Climate](https://codeclimate.com/github/mirego/sprockets-illusionist.png)](https://codeclimate.com/github/mirego/sprockets-illusionist)
+[![Gem Version](http://img.shields.io/gem/v/sprockets-illusionist.svg)](https://rubygems.org/gems/sprockets-illusionist)
+[![Code Climate](http://img.shields.io/codeclimate/github/mirego/sprockets-illusionist.svg)](https://codeclimate.com/github/mirego/sprockets-illusionist)
 
 `sprockets-illusionist` makes it possible to transpile your ES6 files into ES5 using the [Illusionist node module](https://github.com/mirego/illusionist) and Sprockets.
 
