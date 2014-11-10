@@ -85,16 +85,6 @@ With `sprockets-illusionist` just write your JavaScript files with the extension
 
 ## Deploying on Heroku
 
-**This guide assumes that you’re using environment variables which are available in Heroku Labs**
-
-You can enable this feature by doing:
-
-```bash
-$ heroku labs:enable user-env-compile
-```
-
-Let’s get started!
-
 1. You will need to use [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi) to install node and Ruby.
 
 	Tell Heroku to use the right buildpack:
