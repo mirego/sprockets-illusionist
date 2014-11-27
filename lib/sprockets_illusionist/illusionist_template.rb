@@ -11,7 +11,7 @@ module SprocketsIllusionist
     def prepare
     end
 
-    def evaluate(scope, locals, &block)
+    def evaluate(_, _)
       stdout, stderr, _status = Open3.capture3("#{node_path} #{illusionist_path} #{option_string_from_config}", stdin_data: data)
 
       if stderr.empty?
@@ -36,16 +36,20 @@ module SprocketsIllusionist
       file_name = File.basename(file, '.js.es6')
 
       if !base_path.nil?
-        path = Pathname.new(file)
-        dirname = File.dirname(path.relative_path_from(base_path))
-
-        if dirname == '.'
-          file_name
-        else
-          File.join(dirname, file_name)
-        end
+        relative_module_path(file, file_name, base_path)
       else
         file_name
+      end
+    end
+
+    def relative_module_path(file, file_name, base_path)
+      path = Pathname.new(file)
+      directory = File.dirname(path.relative_path_from(base_path))
+
+      if directory == '.'
+        file_name
+      else
+        File.join(directory, file_name)
       end
     end
 
@@ -53,7 +57,7 @@ module SprocketsIllusionist
       module_type = SprocketsIllusionist::Config.try(:module_type)
       options = ["-m #{amd_module_name}"]
 
-      if (!module_type.nil? && %w(amd cjs globals).include?(module_type))
+      if %w(amd cjs globals).include?(module_type)
         options << "-M #{module_type}"
       end
 
