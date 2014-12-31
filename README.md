@@ -85,12 +85,12 @@ With `sprockets-illusionist` just write your JavaScript files with the extension
 
 ## Deploying on Heroku
 
-1. You will need to use [heroku-buildpack-multi](https://github.com/ddollar/heroku-buildpack-multi) to install node and Ruby.
+1. You will need to use [heroku-buildpack-multi](https://github.com/heroku/heroku-buildpack-multi) to install node and Ruby.
 
 	Tell Heroku to use the right buildpack:
 
 	```bash
-	$ heroku config:add BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
+	$ heroku config:add BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-multi.git
 	```
 
 	Create a `.buildpacks` file with the following content:
@@ -145,7 +145,7 @@ With `sprockets-illusionist` just write your JavaScript files with the extension
 	Finally, set these environment variables on Heroku:
 
 	```bash
-	$ heroku config:set NODE_BIN_PATH=./vendor/node/bin/node
+	$ heroku config:set NODE_BIN_PATH=./.heroku/node/bin/node
 	$ heroku config:set ILLUSIONIST_BIN_PATH=./node_modules/.bin/illusionist
 	```
 
@@ -156,7 +156,7 @@ With `sprockets-illusionist` just write your JavaScript files with the extension
 
 ## License
 
-`sprockets-illusionist` is © 2014 [Mirego](http://www.mirego.com) and may be freely distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).
+`sprockets-illusionist` is © 2014-2015 [Mirego](http://www.mirego.com) and may be freely distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).
 See the [`LICENSE.md`](https://github.com/mirego/sprockets-illusionist/blob/master/LICENSE.md) file.
 
 ## About Mirego
