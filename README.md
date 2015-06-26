@@ -7,6 +7,11 @@
 
 **This entire guide assumes that you have [node](http://nodejs.org) and [npm](http://npmjs.org) already installed on your local machine.**
 
+## Deprecation notice
+
+:warning: This repository is now deprecated in favor of
+[`sprockets-es6`](https://github.com/TannerRogalsky/sprockets-es6).
+
 ## Installation
 
 First, you will need the [Illusionist](https://github.com/mirego/illusionist) node package:
